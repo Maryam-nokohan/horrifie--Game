@@ -7,6 +7,7 @@ Location ::Location(const std ::string& name)
 {
     this->Name = name;
 }
+
 void Location :: AddNeighbor(Location *neighbor){
     neighbors.push_back(neighbor);
     

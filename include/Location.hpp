@@ -1,5 +1,6 @@
 #ifndef LOCATION_HPP
 #define LOCATION_HPP
+
 #include "../include/Monster.hpp"
 #include "../include/Item.hpp"
 #include "../include/Hero.hpp"
