@@ -1,12 +1,12 @@
 #include "../include/Item.hpp"
 
- Item::Item(ItemColor color, int power, Location* location) : 
- color(color) {
+ Item::Item(ItemColor color, int power, const std::string& location , const std::string& name) : 
+ color(color) , name(name) {
     if(power<=0 || power>10){
         throw std::invalid_argument("Power must be between 1 and 10");
     }
-    if(!location){
-        throw std::invalid_argument("Location can't be null");
+    if(location.empty()){
+        throw std::invalid_argument("Location can't be empty");
     }
     this->power = power;
     this->location = location ;
@@ -19,14 +19,23 @@ ItemColor Item::getColor() const{
 int Item::getPower() const{
     return power;
 }
-Location* Item::getLocation() const{
+const std::string& Item::getLocation() const{
     return location;
 
     }
-void Item::setLocation(Location* newLocation){
-    if(!newLocation){
-        throw std::invalid_argument("New location can't be null");
+const std::string& Item::getName() const{
+    return name;
+}
+void Item::setLocation(const std::string& newLoc){
+    if(newLoc.empty()){
+        throw std::invalid_argument("New location can't be empty");
     }
-    location = newLocation ;
+    location = newLoc ;
 
 }
+    bool Item :: operator==(Item item){
+        if(item.getColor() == color && item.getLocation() == location  && power == item.getPower())
+        return true;
+        else
+        return false;
+    }

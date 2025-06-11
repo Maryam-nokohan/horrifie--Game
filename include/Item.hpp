@@ -2,20 +2,24 @@
 #define ITEM_HPP
 #include <string>
 #include <stdexcept>
-#include "Location.hpp"
 enum class ItemColor { Red , Blue , Yellow};
 class Item{
  private:
+    std::string name;
     ItemColor color;
     int power;
-    Location* location;
+    std::string location;
 
  public:
-    Item(ItemColor , int , Location*);
+    Item(ItemColor , int , const std::string& , const std::string&);
     ItemColor getColor() const;
     int getPower() const;
-    Location* getLocation() const;
-    void setLocation(Location*) ;
+    const std::string& getLocation() const;
+    const std::string& getName() const;
+    void setLocation(const std::string&) ;
+    bool operator==(Item item);
+
+
 
 
 };
