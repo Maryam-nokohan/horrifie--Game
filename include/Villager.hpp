@@ -17,6 +17,7 @@ class Villager{
       const std::string& getName() const;
       Location* getCurrentLocation() const;
       Location* getSafeLocation() const;
+      void setLocation(Location*);
       bool isAlive() const;
 
       void moveTo(Location*);

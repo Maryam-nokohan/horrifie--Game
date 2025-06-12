@@ -26,5 +26,7 @@ void Villager::kill(){
 void Villager::rescue(){
     alive = false;
     currentLocation = nullptr ;
-
+}
+void Villager::setLocation(Location* newLocation){
+    currentLocation = newLocation;
 }
